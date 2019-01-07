@@ -9,7 +9,8 @@ import numpy as np
 
 
 #This Function generates CNN model and creates a prediction for the model through taking in the images and trained
-# with attribute_list.csv. We can choose the task and the number of epochs.
+# with attribute_list.csv. We can choose the task and the number of epochs where shape is the number of attributes, 
+# eg. smiling or not smiling will have a shape of two.
 def CNN_for_tasks(task, number_of_task,shape,epochs):
 
     #read the attribute_list.csv
