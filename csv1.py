@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 #This function compares the prediction and the actual data and gets the accuracy of the prediction.
 # task is task_attribute, number_of_task is the task name of the new csv file and column_number is the
 # specific column number of the attribute_list
@@ -12,7 +11,6 @@ def compare_and_get_accuracy(task,number_of_task,column_number):
 
     data2 = pd.read_csv('dataset/attribute_list.csv', usecols=[0,column_number],index_col=0,skiprows=1)
     data2 = data2.dropna(axis=1)
-
 
     #step1. take relevant info from attribute_list.csv and put it into third column of Task.csv
     C = pd.merge(left=data, right=data2, on='file_name', how='outer', left_index=True, right_index=True)
