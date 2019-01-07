@@ -46,9 +46,8 @@ test_set = test_datagen.flow_from_directory('testing/',
                                             batch_size = 2,
                                             class_mode= 'binary',
                                             classes=['smile', 'no_smile'])
-
-
-from IPython.display import display
+#I am using smile and not smile as the two classes but since I don't have two folders with purely these two image types established.
+# Hence, this method does not apply.
 
 
 classifier.fit_generator(training_set,
