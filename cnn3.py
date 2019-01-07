@@ -9,7 +9,7 @@ import numpy as np
 
 
 #This Function generates CNN model and creates a prediction for the model through taking in the images and trained
-# with attribute_list.csv. We can choose the task and the number of epochs where shape is the number of attributes, 
+# with attribute_list.csv. We can choose the task and the number of epochs where shape is the number of attributes,
 # eg. smiling or not smiling will have a shape of two.
 def CNN_for_tasks(task, number_of_task,shape,epochs):
 
@@ -26,7 +26,7 @@ def CNN_for_tasks(task, number_of_task,shape,epochs):
                                                   class_mode="categorical",
                                                   has_ext=False,
                                                   shuffle=True,
-                                                  seed = 42,
+                                                  seed = 3,
                                                   subset='training',
                                                   target_size=(32, 32), batch_size=10)
 
@@ -36,7 +36,7 @@ def CNN_for_tasks(task, number_of_task,shape,epochs):
                                                   has_ext=False,
                                                   class_mode="categorical",
                                                   shuffle=True,
-                                                  seed = 42,
+                                                  seed = 3,
                                                   subset='validation',
                                                   target_size=(32, 32), batch_size=10)
 
@@ -46,7 +46,7 @@ def CNN_for_tasks(task, number_of_task,shape,epochs):
                                                  has_ext=False,
                                                  class_mode="categorical",
                                                  shuffle=True,
-                                                 seed =42,
+                                                 seed =3,
                                                  target_size=(32, 32), batch_size=10)
 
     # Initialising CNN Model
