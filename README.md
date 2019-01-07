@@ -31,3 +31,7 @@ Task2.csv is the result for Age identification
 Task3.csv is the result for Glasses recognition
 Task4.csv is the result for Human recognition
 Task5.csv is the result for Hair Colour recognition
+
+https://drive.google.com/drive/folders/1JxQL6eD9ALqRq1gV31zOBjWy0SIxGUTZ?usp=sharing
+https://github.com/willy7593/AMLassignment
+
