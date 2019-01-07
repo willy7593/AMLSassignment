@@ -1,55 +1,37 @@
-
-# import lab2_landmarks as l2
-#import open cv library
+#import openCV library
 import cv2
-#import matplotlib library
-import matplotlib.pyplot as plt
+#import OS module
 import os
-import numpy as np
-#shutil is the file managing library
-import shutil
+from cnn3 import CNN_for_tasks
+from csv1 import compare_and_get_accuracy
 
-#kera is used for ML
-from keras.models import Sequential
-from keras.layers import Dense, Conv2D, Flatten
-
-
-
-
-
-def load_images_from_folder():
-    # Open a file
-    path = "dataset/dataset/"
-
-    source = os.listdir(path)
-    destination = "dataset/output/"
-    for files in source:
-        if files.endswith(".png"):
-            img = cv2.imread(os.path.join(path, files))
-            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            face = haar_face_cascade.detectMultiScale(gray_img, scaleFactor=1.5, minNeighbors=5);
-            if face.any() > 0:
-                shutil.copy(files, destination)
-    return 0
-
+#Main Function
 if __name__ == "__main__":
-
+    '''
+    #these two files are for haar classifier
     haar_face_cascade = cv2.CascadeClassifier('dataset/haarcascade_frontalface_alt.xml')
     haar_eye_cascade = cv2.CascadeClassifier('dataset/haarcascade_eye.xml')
 
+    #initiate count as 0
     count = 0
+
+    #set path
     path = "dataset/dataset/"
 
-    source = os.listdir(path)
+    source = os.listdir(path)   #Return a list of the entries in the directory given by path.
     destination1= "training"
     destination2 = "testing"
+    
+    #This part checks images files and convert them into grayscale and starts to distinguish facial image or not.
+    #Next, store them into either training folder or testing folder. 80% of the facial images are used for training
+    #while the 20% facial images are split for testing. 
     for files in source:
         count += 1
-        if files.endswith(".png"):
+        if files.endswith(".png"):                  #checking if the files are images in png
             counting = str(count) + '.png'
-            img = cv2.imread(os.path.join(path, counting))
-            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            face = haar_face_cascade.detectMultiScale(gray_img, scaleFactor=1.5, minNeighbors=5);
+            img = cv2.imread(os.path.join(path, counting))          #calling images
+            gray_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)        #convert into grayscale
+            face = haar_face_cascade.detectMultiScale(gray_img, scaleFactor=1.1, minNeighbors=5) #identify and count faces
 
             if count > 4000:
                 if len(face) > 0:
@@ -58,51 +40,34 @@ if __name__ == "__main__":
                 if len(face) > 0:
                     cv2.imwrite(os.path.join(destination1, counting), img)
 
-##I could have added an extra thing about nose
-##I could also have a result for LBP
-##lbp_face_cascade = cv2.CascadeClassifier('data/lbpcascade_frontalface.xml')
-##lbp_detected_img = detect_faces(lbp_face_cascade, test1)
 
-##need to do a valid generator for the 1/4 of training set
+        '''
+#from here on is to apply CNN, train,verify and get predictions and accuracy.
 
+#number of epochs
+epochs = 1
 
+#Task 1 Emotion recognition
+CNN_for_tasks("smiling", "Task1.csv",2,epochs)
+compare_and_get_accuracy("smiling", "Task1.csv",3)
 
+#Task 2 Age identification
+CNN_for_tasks("young", "Task2.csv",2,epochs)
+compare_and_get_accuracy("young", "Task2.csv",4)
 
+#Task 3 Glasses detection
+CNN_for_tasks("eyeglasses", "Task3.csv",2,epochs)
+compare_and_get_accuracy("eyeglasses", "Task3.csv",2)
 
+#Task 4 Human detection
+CNN_for_tasks("human", "Task4.csv",2,epochs)
+compare_and_get_accuracy("human", "Task4.csv",5)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-def get_data():
-    X, y = l2.extract_features_labels()
-    Y = np.array([y, -(y - 1)]).T
-    tr_X = X[:100]
-    tr_Y = Y[:100]
-    te_X = X[100:]
-    te_Y = Y[100:]
-    return tr_X, tr_Y, te_X, te_Y
+#Task 5 Hair colour recognition
+CNN_for_tasks("hair_color", "Task5.csv",7,epochs)
+compare_and_get_accuracy("hair_color", "Task5.csv",1)
 
 
-def train_SVM(training_images, training_labels, test_images, test_labels):
-
-    return 0
 
 
-def train_MLP(training_images, training_labels, test_images, test_labels):
 
-    return 0
-
-if __name__ == "__main__":
-    tr_X, tr_Y, te_X, te_Y = get_data()
-    '''
