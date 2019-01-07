@@ -7,7 +7,7 @@ from csv1 import compare_and_get_accuracy
 
 #Main Function
 if __name__ == "__main__":
-
+    
     #these two files are for haar classifier
     haar_face_cascade = cv2.CascadeClassifier('dataset/haarcascade_frontalface_alt.xml')
     haar_eye_cascade = cv2.CascadeClassifier('dataset/haarcascade_eye.xml')
@@ -50,11 +50,10 @@ if __name__ == "__main__":
 
 #from here on is to apply CNN, train,verify and get predictions and accuracy.
 
-
-
-
+  
 #number of epochs
-epochs = 5
+epochs = 1
+
 #Task 1 Emotion recognition
 CNN_for_tasks("smiling", "Task1.csv",2,epochs)
 compare_and_get_accuracy("smiling", "Task1.csv",3)
