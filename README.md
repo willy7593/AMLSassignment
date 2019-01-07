@@ -1,6 +1,6 @@
 # AMLassignment
 
-Wei-Ming Chen
+Student ID:15085391
 Electrical and Electronic Engineering
 zceewch@ucl.ac.uk
 
