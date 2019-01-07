@@ -1,5 +1,5 @@
 #kera is used for ML
-import pandas as pd
+import pandas as pd     #for file management
 from keras_preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
