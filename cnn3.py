@@ -26,7 +26,7 @@ def CNN_for_tasks(task, number_of_task,shape,epochs):
                                                   class_mode="categorical",
                                                   has_ext=False,
                                                   shuffle=True,
-                                                  seed = 3,
+                                                  seed = 1,
                                                   subset='training',
                                                   target_size=(32, 32), batch_size=10)
 
@@ -36,7 +36,7 @@ def CNN_for_tasks(task, number_of_task,shape,epochs):
                                                   has_ext=False,
                                                   class_mode="categorical",
                                                   shuffle=True,
-                                                  seed = 3,
+                                                  seed = 1,
                                                   subset='validation',
                                                   target_size=(32, 32), batch_size=10)
 
@@ -46,7 +46,7 @@ def CNN_for_tasks(task, number_of_task,shape,epochs):
                                                  has_ext=False,
                                                  class_mode="categorical",
                                                  shuffle=True,
-                                                 seed =3,
+                                                 seed =1,
                                                  target_size=(32, 32), batch_size=10)
 
     # Initialising CNN Model
