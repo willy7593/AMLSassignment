@@ -5,7 +5,7 @@ Electrical and Electronic Engineering
 zceewch@ucl.ac.uk
 
 install libraries
-pip install cv2, os, pandas, numpy, Keras
+Pip install numpy keras opencv-python tensorflow pillow pandas os
 
 ensure inside the dataset folder, there are dataset, attribute_list.csv and haarcascade_frontalface_alt.xml
 
